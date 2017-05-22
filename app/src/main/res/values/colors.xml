@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="tab_bg">#FFFFFF</color>
+    <color name="default_color">#030303</color>
+    <color name="select_color">#FF0000</color>
+    <color name="view_bg">#FF0000</color>
+    <color name="status_bg">@color/tab_bg</color>
+    <color name="page_bg">#f2f4f5</color>
+    <color name="bt_add_pkg_color">@color/view_bg</color>
+    <color name="darkgray">#cccc</color>
+    <color name="color_white">#ffffff</color>
+    <color name="btn_press_color">#5677fc</color>
+    <color name="btn_pressed_color">#7CCD7C</color>
+    <color name="tv_delete_address_color">@color/bt_add_pkg_color</color>
+    <color name="net_hint_color">#FF6EC7</color>
+    <color name="transfer_next">@color/view_bg</color>
+    <color name="red_color">@color/view_bg</color>
+</resources>

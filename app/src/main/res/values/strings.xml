@@ -1,0 +1,6 @@
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingTranslation"
+    >
+    <string name="tv_hint_net">网络连到木星上去了,请检查网络</string>
+    <string name="app_name">约约约</string>
+</resources>
