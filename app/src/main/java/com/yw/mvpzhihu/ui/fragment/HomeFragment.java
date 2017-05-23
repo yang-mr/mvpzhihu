@@ -9,9 +9,10 @@ import com.socks.library.KLog;
 import com.yw.mvpzhihu.R;
 import com.yw.mvpzhihu.api.ZhihuApi;
 import com.yw.mvpzhihu.bean.HomeBean;
+import com.yw.mvpzhihu.component.AppComponent;
 import com.yw.mvpzhihu.contact.HomeFragmentContact;
 import com.yw.mvpzhihu.ui.adapter.HomeFragmentAdapter;
-import com.yw.mvpzhihu.ui.bean.BeanFragment;
+import com.yw.mvpzhihu.ui.bean.BaseRvFragment;
 import com.yw.mvpzhihu.ui.presenter.HomeFragmentPresenter;
 
 import butterknife.Bind;
@@ -19,7 +20,7 @@ import butterknife.Bind;
 /**
  * Created by yw on 17/5/20.
  */
-public class HomeFragment extends BeanFragment<HomeFragmentPresenter> implements HomeFragmentContact.View, SwipeRefreshLayout.OnRefreshListener {
+public class HomeFragment extends BaseRvFragment<HomeFragmentPresenter> implements HomeFragmentContact.View, SwipeRefreshLayout.OnRefreshListener {
 
     @Bind(R.id.swiperefreshlayout)
     SwipeRefreshLayout swiperefreshlayout;
@@ -37,6 +38,7 @@ public class HomeFragment extends BeanFragment<HomeFragmentPresenter> implements
     @Override
     public void initDatas() {
 
+        mPresenter.attachView(this);
         ZhihuApi zhihuApi = ZhihuApi.getInstance();
         KLog.d(zhihuApi);
 
@@ -48,13 +50,16 @@ public class HomeFragment extends BeanFragment<HomeFragmentPresenter> implements
         onRefresh();
     }
 
+    @Override
+    public void setInject(AppComponent appComponent) {
+
+    }
 
     @Override
     public void onRefresh() {
         recycView.setAdapter(mAdapter = new HomeFragmentAdapter(getActivity()));
         mPresenter.getHomeList();
     }
-
 
     @Override
     public void showHomeList(HomeBean bean) {

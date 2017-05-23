@@ -11,7 +11,7 @@ import butterknife.ButterKnife;
 /**
  * Created by yw on 17/5/20.
  */
-public abstract class BeanActivity extends FragmentActivity {
+public abstract class BaseActivity extends FragmentActivity {
     protected Context mContext;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

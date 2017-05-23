@@ -10,9 +10,9 @@ import android.widget.TextView;
 
 import com.socks.library.KLog;
 import com.yw.mvpzhihu.contact.MainActivityViewContact;
+import com.yw.mvpzhihu.ui.bean.BaseRvFragment;
 import com.yw.mvpzhihu.ui.presenter.MainPresenter;
-import com.yw.mvpzhihu.ui.bean.BeanActivity;
-import com.yw.mvpzhihu.ui.bean.BeanFragment;
+import com.yw.mvpzhihu.ui.bean.BaseActivity;
 import com.yw.mvpzhihu.ui.fragment.HomeFragment;
 
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ import java.util.List;
 import butterknife.Bind;
 
 
-public class MainActivity extends BeanActivity implements MainActivityViewContact.View {
+public class MainActivity extends BaseActivity implements MainActivityViewContact.View {
     @Bind(R.id.tv_message)
     TextView tvMessage;
     @Bind(R.id.message_net)
@@ -31,7 +31,7 @@ public class MainActivity extends BeanActivity implements MainActivityViewContac
     @Bind(R.id.rg_group)
     RadioGroup rgGroup;
     private MainPresenter mMainPresenter;
-    private List<BeanFragment> mListFragment;
+    private List<BaseRvFragment> mListFragment;
 
     @Override
     public int setLayoutId() {
@@ -124,7 +124,7 @@ public class MainActivity extends BeanActivity implements MainActivityViewContac
     }
     
     private class MyAdapter extends FragmentPagerAdapter{
-        private List<BeanFragment> lists;
+        private List<BaseRvFragment> lists;
         public MyAdapter(FragmentManager fm, List list) {
             super(fm);
             this.lists = list;
