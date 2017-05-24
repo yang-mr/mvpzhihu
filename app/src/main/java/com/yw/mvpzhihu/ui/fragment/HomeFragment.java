@@ -2,6 +2,7 @@ package com.yw.mvpzhihu.ui.fragment;
 
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -49,7 +50,7 @@ public class HomeFragment extends BaseRvFragment<HomeFragmentPresenter> implemen
 
         recycView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recycView.setItemAnimator(new DefaultItemAnimator());
-
+        recycView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
         swiperefreshlayout.setOnRefreshListener(this);
         onRefresh();
     }
