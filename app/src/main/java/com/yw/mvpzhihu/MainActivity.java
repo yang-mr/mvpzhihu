@@ -7,12 +7,13 @@ import android.support.v4.view.ViewPager;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 import com.socks.library.KLog;
 import com.yw.mvpzhihu.contact.MainActivityViewContact;
-import com.yw.mvpzhihu.ui.bean.BaseRvFragment;
+import com.yw.mvpzhihu.ui.base.BaseRvFragment;
 import com.yw.mvpzhihu.ui.presenter.MainPresenter;
-import com.yw.mvpzhihu.ui.bean.BaseActivity;
+import com.yw.mvpzhihu.ui.base.BaseActivity;
 import com.yw.mvpzhihu.ui.fragment.HomeFragment;
 
 import java.util.ArrayList;
@@ -94,6 +95,10 @@ public class MainActivity extends BaseActivity implements MainActivityViewContac
                 }
             }
         });
+    }
+
+    @Override
+    protected void initToolbar() {
     }
 
 //    @Override

@@ -5,6 +5,7 @@ import android.app.Application;
 import com.socks.library.KLog;
 import com.yw.mvpzhihu.component.AppComponent;
 /*import com.yw.mvpzhihu.component.DaggerAppComponent;*/
+import com.yw.mvpzhihu.component.DaggerAppComponent;
 import com.yw.mvpzhihu.module.ApiModule;
 import com.yw.mvpzhihu.module.AppModule;
 
@@ -29,10 +30,10 @@ public class AppApplication extends Application {
     }
 
     private void initAppComponent() {
-     /*   mAppComponent = DaggerAppComponent.builder()
+        mAppComponent = DaggerAppComponent.builder()
                 .apiModule(new ApiModule())
                 .appModule(new AppModule(this))
-                .build();*/
+                .build();
     }
 
     public static AppComponent getAppComponent() {

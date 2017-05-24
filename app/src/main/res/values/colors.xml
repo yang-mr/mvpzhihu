@@ -18,4 +18,12 @@
     <color name="net_hint_color">#FF6EC7</color>
     <color name="transfer_next">@color/view_bg</color>
     <color name="red_color">@color/view_bg</color>
+    <!--通用背景色-->
+    <color name="common_bg">#444444</color>
+    <!--通用一级标题的颜色-->
+    <color name="common_h1">#999999</color>
+    <!--通用二级标题的颜色-->
+    <color name="common_h2">#666666</color>
+    <!--通用三级标题的颜色-->
+    <color name="common_h3">#505050</color>
 </resources>

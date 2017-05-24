@@ -9,6 +9,7 @@ import com.yw.mvpzhihu.contact.base.BaseContact;
 public interface HomeFragmentContact {
     interface View extends BaseContact.BaseView {
         void showHomeList(HomeBean b);
+        void refreshEnd();
     }
 
     interface Presenter<T extends BaseContact.BaseView> extends BaseContact.BasePresenter<T> {

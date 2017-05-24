@@ -1,4 +1,4 @@
-package com.yw.mvpzhihu.ui.bean;
+package com.yw.mvpzhihu.ui.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,9 +10,6 @@ import android.view.ViewGroup;
 import com.socks.library.KLog;
 import com.yw.mvpzhihu.AppApplication;
 import com.yw.mvpzhihu.component.AppComponent;
-import com.yw.mvpzhihu.contact.base.BaseContact;
-
-import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 
@@ -32,16 +29,17 @@ public abstract class BaseFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
 
+        setInject(AppApplication.getInstance().getAppComponent());
+        attachView();
         KLog.d();
         initDatas();
-        setInject(AppApplication.getInstance().getAppComponent());
     }
-
+    protected abstract void attachView();
     public abstract int setContentId();
 
     public abstract void initDatas();
 
-    public abstract void setInject(AppComponent appComponent);
+    public abstract void  setInject(AppComponent appComponent);
 
     @Override
     public void onDestroyView() {

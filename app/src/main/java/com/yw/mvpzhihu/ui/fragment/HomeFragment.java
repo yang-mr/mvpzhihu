@@ -10,9 +10,10 @@ import com.yw.mvpzhihu.R;
 import com.yw.mvpzhihu.api.ZhihuApi;
 import com.yw.mvpzhihu.bean.HomeBean;
 import com.yw.mvpzhihu.component.AppComponent;
+import com.yw.mvpzhihu.component.DaggerHomeComponent;
 import com.yw.mvpzhihu.contact.HomeFragmentContact;
 import com.yw.mvpzhihu.ui.adapter.HomeFragmentAdapter;
-import com.yw.mvpzhihu.ui.bean.BaseRvFragment;
+import com.yw.mvpzhihu.ui.base.BaseRvFragment;
 import com.yw.mvpzhihu.ui.presenter.HomeFragmentPresenter;
 
 import butterknife.Bind;
@@ -31,13 +32,17 @@ public class HomeFragment extends BaseRvFragment<HomeFragmentPresenter> implemen
     private HomeFragmentAdapter mAdapter;
 
     @Override
+    protected void attachView() {
+        mPresenter.attachView(this);
+    }
+
+    @Override
     public int setContentId() {
         return R.layout.fragment_home;
     }
 
     @Override
     public void initDatas() {
-
         mPresenter.attachView(this);
         ZhihuApi zhihuApi = ZhihuApi.getInstance();
         KLog.d(zhihuApi);
@@ -46,13 +51,16 @@ public class HomeFragment extends BaseRvFragment<HomeFragmentPresenter> implemen
         recycView.setItemAnimator(new DefaultItemAnimator());
 
         swiperefreshlayout.setOnRefreshListener(this);
-
         onRefresh();
     }
 
     @Override
     public void setInject(AppComponent appComponent) {
-
+        KLog.d(appComponent);
+        DaggerHomeComponent.builder()
+                .appComponent(appComponent)
+                .build()
+                .inject(this);
     }
 
     @Override
@@ -63,7 +71,22 @@ public class HomeFragment extends BaseRvFragment<HomeFragmentPresenter> implemen
 
     @Override
     public void showHomeList(HomeBean bean) {
+        mAdapter.clear();
         mAdapter.add(bean.getStories());
         KLog.d();
+    }
+
+    @Override
+    public void refreshEnd() {
+        KLog.d();
+        if (swiperefreshlayout.isRefreshing()) {
+            swiperefreshlayout.setRefreshing(false);
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mPresenter.detachView();
     }
 }

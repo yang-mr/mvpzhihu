@@ -1,48 +1,54 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
+
     <RelativeLayout
+        android:id="@+id/message_net"
         android:layout_width="match_parent"
         android:layout_height="@dimen/y23"
-        android:id="@+id/message_net"
+        android:background="@color/net_hint_color"
         android:orientation="horizontal"
-        android:visibility="gone"
-        android:background="@color/net_hint_color" >
+        android:visibility="gone">
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:paddingLeft="10dp"
-            android:src="@mipmap/message_net"
-            />
+            android:src="@mipmap/message_net" />
+
         <TextView
             android:id="@+id/tv_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_centerInParent="true"
-            android:text="@string/tv_hint_net"
-            />
+            android:layout_centerVertical="true"
+            android:text="@string/tv_hint_net" />
     </RelativeLayout>
+
+    <include layout="@layout/common_toolbar" />
+
     <android.support.v4.view.ViewPager
         android:id="@+id/vp_content"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
+
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content">
+
         <RadioGroup
             android:id="@+id/rg_group"
             android:layout_width="match_parent"
             android:layout_height="@dimen/x50"
-            android:weightSum="3"
-            android:padding="@dimen/x4"
             android:background="@color/tab_bg"
-            android:orientation="horizontal" >
+            android:orientation="horizontal"
+            android:padding="@dimen/x4"
+            android:weightSum="3">
+
             <RadioButton
                 android:id="@+id/rb_order"
                 style="@style/BottomTabStyle"
@@ -63,28 +69,16 @@
 </LinearLayout>
 
 
-<!--<?xml version="1.0" encoding="utf-8"?>-->
-<!--<android.support.design.widget.CoordinatorLayout-->
-    <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
-    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
-    <!--xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent" android:fitsSystemWindows="true"-->
-    <!--tools:context=".MainActivity">-->
+    <!--<?xml version="1.0" encoding="utf-8"?>--><!--<android.support.design.widget.CoordinatorLayout--><!--xmlns:android="http://schemas.android.com/apk/res/android"--><!--xmlns:app="http://schemas.android.com/apk/res-auto"--><!--xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"--><!--android:layout_height="match_parent" android:fitsSystemWindows="true"--><!--tools:context=".MainActivity">-->
 
-    <!--<android.support.design.widget.AppBarLayout android:layout_height="wrap_content"-->
-        <!--android:layout_width="match_parent" android:theme="@style/AppTheme.AppBarOverlay">-->
+    <!--<android.support.design.widget.AppBarLayout android:layout_height="wrap_content"--><!--android:layout_width="match_parent" android:theme="@style/AppTheme.AppBarOverlay">-->
 
-        <!--<android.support.v7.widget.Toolbar android:id="@+id/toolbar"-->
-            <!--android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"-->
-            <!--android:background="?attr/colorPrimary" app:popupTheme="@style/AppTheme.PopupOverlay" />-->
+    <!--<android.support.v7.widget.Toolbar android:id="@+id/toolbar"--><!--android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"--><!--android:background="?attr/colorPrimary" app:popupTheme="@style/AppTheme.PopupOverlay" />-->
 
     <!--</android.support.design.widget.AppBarLayout>-->
 
     <!--<include layout="@layout/content_main" />-->
 
-    <!--<android.support.design.widget.FloatingActionButton android:id="@+id/fab"-->
-        <!--android:layout_width="wrap_content" android:layout_height="wrap_content"-->
-        <!--android:layout_gravity="bottom|end" android:layout_margin="@dimen/fab_margin"-->
-        <!--android:src="@android:drawable/ic_dialog_email" />-->
+    <!--<android.support.design.widget.FloatingActionButton android:id="@+id/fab"--><!--android:layout_width="wrap_content" android:layout_height="wrap_content"--><!--android:layout_gravity="bottom|end" android:layout_margin="@dimen/fab_margin"--><!--android:src="@android:drawable/ic_dialog_email" />-->
 
-<!--</android.support.design.widget.CoordinatorLayout>-->
+    <!--</android.support.design.widget.CoordinatorLayout>-->

@@ -5,6 +5,8 @@ import com.yw.mvpzhihu.api.ZhihuApi;
 import com.yw.mvpzhihu.bean.HomeBean;
 import com.yw.mvpzhihu.contact.HomeFragmentContact;
 
+import javax.inject.Inject;
+
 import rx.Subscriber;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
@@ -15,6 +17,8 @@ import rx.schedulers.Schedulers;
  */
 public class HomeFragmentPresenter extends BasePresenter<HomeFragmentContact.View> implements HomeFragmentContact.Presenter<HomeFragmentContact.View>{
     private ZhihuApi mZhihuApi;
+
+    @Inject
     public HomeFragmentPresenter(ZhihuApi mZhihuApi) {
         this.mZhihuApi = mZhihuApi;
     }
@@ -37,6 +41,7 @@ public class HomeFragmentPresenter extends BasePresenter<HomeFragmentContact.Vie
                     @Override
                     public void onCompleted() {
                         KLog.d();
+                        mView.refreshEnd();
                     }
 
                     @Override
